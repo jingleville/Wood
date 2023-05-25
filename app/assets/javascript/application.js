@@ -1,4 +1,4 @@
 // Entry point for the build script in your package.json
-function b () {
+function a () {
 	alert('aaaa')
 }
