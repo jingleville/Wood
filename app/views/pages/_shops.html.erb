@@ -1,6 +1,10 @@
 
-<%= link_to image_tag("http://yastatic.net/market-export/_/i/favicon/ymnew/favicon.ico", alt: '...'), root_path, 
-          class: "img",
-          method: :put %>
+<% ynd_img = image_tag("http://yastatic.net/market-export/_/i/favicon/ymnew/favicon.ico", alt: '...') %>
+<% avito_img = image_tag("icons/favicon.ico", alt: '...') %>
+<% ozon_img = image_tag("https://www.ozon.ru/public/favicon.ico", alt: '...') %>
+
+<%= link_to ynd_img, 'https://market.yandex.ru/', class: "icon", target: '_blank' %>
+<%= link_to avito_img, 'https://www.avito.ru/', class: "icon", target: '_blank' %>
+<%= link_to ozon_img, 'https://www.ozon.ru/', class: "icon", target: '_blank' %>
 
 
