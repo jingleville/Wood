@@ -1,94 +1,46 @@
+<div class="container-fluid border">
 
-<button type="button" class="btn btn-primary px-3"><i class="fab fa-android" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-default px-3"><i class="fas fa-balance-scale" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-secondary px-3"><i class="fas fa-birthday-cake" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-success px-3"><i class="far fa-thumbs-up" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-info px-3"><i class="fas fa-tint" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-warning px-3"><i class="fas fa-bolt" aria-hidden="true"></i></button>
-        <button type="button" class="btn btn-danger px-3"><i class="fas fa-users" aria-hidden="true"></i></button>
-
-<div class="container border">
-
-  <%= @images.inspect %>
-
-  <h1>Pages#alt3</h1>
+  <h1>Pages#alt2</h1>
   <p>Find me in app/views/pages/main.html.erb</p>
 
-  <h1>Masonry - layout method</h1>
-  <p>Click to toggle item size</p>
-  <div class="grid">
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--width2"></div>
-    <div class="grid-item grid-item--width2"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--width2"></div>
-    <div class="grid-item"></div>
-  </div>
 
   <div>
     <p> about us </p>
   </div>
 
-  <% @images.each do |product, images| %>
+<% @images.each do |product, images| %>
+<div class="card w-auto">
+  <h1> <%= product %> </h1>
+  <style scoped>
+    .gallery {
+        grid-template-columns: repeat(<%= images.size %>, 80vw);
+      }
+  </style>
+  <ul class="gallery" id=<%= product %>>
+    <% images.each do |image| %>
+      <li>
+        <%= image_tag image, class: 'img-fluid', alt: '...' %>
+      </li>
+    <% end %>
+  </ul>
 
-    <div id=<%= product %>>
-      <div class="card border w-auto" style="width: 60rem;">
-        <div id="carouselExampleIndicators" class="carousel slide rounded w-auto" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <% images.size.times do |index| %>
-                  <% if index == 0 %>
-                    <li data-target="#carouselExampleIndicators" data-slide-to=<%= index.to_s %> class="active"></li>
-                  <% else %>
-                    <li data-target="#carouselExampleIndicators" data-slide-to=<%= index.to_s %>></li>
-                  <% end %>
-                <% end %>
-            </ol>
-            <div class="carousel-inner">
-                <% images.each do |image| %>
-                  <% if image == images.first %>
-                    <div class="carousel-item active">
-                        <%= image_tag image, class: 'd-block w-100', alt: '...' %>
-                    </div>  
-                  <% else %>
-                  <div class="carousel-item">
-                      <%= image_tag image, width: 300, class: 'd-block w-100', alt: '...' %>
-                  </div>  
-                  <% end %>
-                <% end %>
-            </div>
-
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <%= render 'shops' %>
+  </div>
+</div>
 
 
-          <%= render 'shops' %>
-          <%= link_to "Yandex", 'https://market.yandex.ru/', target: '_blank', class: '' %>
-          <%= link_to "Avito", 'https://market.yandex.ru/', target: '_blank' %>
-          <%= link_to "Ozon", 'https://market.yandex.ru/', target: '_blank' %>
-        </div>
-      </div>
-    </div>
 
-  <% end %>
+<% end %>
+
+
+
+
+<%= render 'shops' %>
+
 
   
 
