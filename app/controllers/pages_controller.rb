@@ -8,28 +8,20 @@ class PagesController < ApplicationController
   end
 
   def alt2
+    potential_way_to_all_assets = "<% Rails.application.config.assets.paths.each do |path| %><p> <%= path %> </p><% end %>"
   end
-
-  def alt3
-  end
-
-  def alt4
-  end
-
-  def alt5
-  end
-
-  def alt6
-  end  
 
   private
 
   def imgs
     @images = {}
-    img_list = Dir.glob("app/assets/images/Product 1/*.JPG")
-    img_list.map { |image| image['app/assets/images/'] = ''}
-    @images["Product_1"] = img_list
-    # @images["Product_2"] = Dir.glob("app/assets/images/Product 2/*.JPG")
+
+    6.times do |i|
+      i += 1
+      img_list = Dir.glob("app/assets/images/Product #{i}/*.JPG")
+      img_list.map { |image| image['app/assets/images/'] = ''}
+      @images["Product_#{i}"] = img_list
+    end
   end
 
 end

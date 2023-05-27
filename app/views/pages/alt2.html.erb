@@ -1,5 +1,9 @@
 <div class="container-fluid border">
 
+  <span>
+    <a href=”tel:+79811663956”>+7 (981) 166-39-56</a>
+  </span>
+
   <h1>Pages#alt2</h1>
   <p>Find me in app/views/pages/main.html.erb</p>
 
@@ -8,38 +12,48 @@
     <p> about us </p>
   </div>
 
-<% @images.each do |product, images| %>
-<div class="card w-auto">
-  <h1> <%= product %> </h1>
-  <style scoped>
-    .gallery {
-        grid-template-columns: repeat(<%= images.size %>, 80vw);
+
+
+  
+  <% @images.each do |product, images| %>
+
+  <div class="card w-auto mb-3">
+
+    <style type="text/css">
+      #<%=product%> {
+        grid-template-columns: repeat(<%= images.size %>, 60vw);
       }
-  </style>
-  <ul class="gallery" id=<%= product %>>
-    <% images.each do |image| %>
-      <li>
-        <%= image_tag image, class: 'img-fluid', alt: '...' %>
-      </li>
-    <% end %>
-  </ul>
+    </style>
+    <ul class="gallery" id=<%= product %>>
+      <% images.each do |image| %>
+        <li>
+          <%= image_tag image, class: 'img-fluid', alt: '...' %>
+        </li>
+      <% end %>
+    </ul>
 
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <%= render 'shops' %>
+    <div class="card-body">
+
+      <h1> 
+        <%= product %> 
+      </h1>
+      <h5 class="card-title">
+        Card title
+      </h5>
+      
+      <h6 class="card-subtitle mb-2 text-muted">
+        Card subtitle
+      </h6>
+      
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk of the card's content.
+      </p>
+      
+      <%= render 'shops' %>
+    </div>
   </div>
-</div>
-
-
-
 <% end %>
 
-
-
-
-<%= render 'shops' %>
 
 
   

@@ -1,10 +1,37 @@
+<section>
+    <style scoped>
+        button{
+           display: flex;
+           align-items: center;
+           text-align: right;
+           background-color: #C1CAD6;
+           border-radius: 1rem;
+           width: 10rem;
+        } 
 
-<% ynd_img = image_tag("http://yastatic.net/market-export/_/i/favicon/ymnew/favicon.ico", alt: '...') %>
-<% avito_img = image_tag("icons/favicon.ico", alt: '...') %>
-<% ozon_img = image_tag("https://www.ozon.ru/public/favicon.ico", alt: '...') %>
+        button:hover{
+           background-color: #66C7F4;
+        } 
 
-<%= link_to ynd_img, 'https://market.yandex.ru/', class: "icon", target: '_blank' %>
-<%= link_to avito_img, 'https://www.avito.ru/', class: "icon", target: '_blank' %>
-<%= link_to ozon_img, 'https://www.ozon.ru/', class: "icon", target: '_blank' %>
+        .tl{
+            text-align: left;
+        }
+    </style>
 
+    <div class="btn-group">
+        <button onclick="window.open('https://market.yandex.ru/', '_blank');">
+          <%= image_tag "icons/yandex/favicon.png", alt: '...', width: '30px', height: '30px', class: 'mx-1 my-1'%>
+          <p class="mx-1 my-1"> Yandex </p>
+        </button>
 
+        <button onclick="window.open('https://www.avito.ru/', '_blank');" class="tl">
+          <%= image_tag "icons/avito/favicon.ico", alt: '...', width: '30px', height: '30px', class: 'mx-1 my-1'%>
+          <p class="mx-1 my-1"> Avito </p>
+        </button>
+
+        <button onclick="window.open('https://www.ozon.ru/', '_blank');">
+          <%= image_tag "icons/ozon/favicon.ico", alt: '...', width: '30px', height: '30px', class: 'mx-1 my-1'%>
+          <p class="mx-1 my-1 tl"> Ozon </p>
+        </button>
+    </div>
+</section>

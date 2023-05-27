@@ -1,14 +1,11 @@
 <div class="container">
 <h1> Different versions </h1>
 
-<% Rails.application.config.assets.paths.each do |path| %>
-  <p> <%= path %> </p>
-<% end %>
-<%= image_tag "Product 1/MART3395.JPG", width: 300 %>
-
 
 <div class="btn-group" role="group" aria-label="Basic example">
-  <%= link_to "Version 1", alt1_path, class: 'btn btn-secondary' %>
-  <%= link_to "Version 2", alt2_path, class: 'btn btn-secondary' %>
-  <%= link_to "Version 3", alt3_path, class: 'btn btn-secondary' %>
+  <%= link_to "Version 1", alt1_path, class: 'btn btn-secondary border' %>
+  <%= link_to "Version 2", alt2_path, class: 'btn btn-secondary border' %>
 </div>
+
+
+<%= render 'shops' %>
